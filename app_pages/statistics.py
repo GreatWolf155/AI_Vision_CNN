@@ -54,21 +54,36 @@ metrics_tab, matrix_tab, confidence_tab, data_tab, model_tab = st.tabs(
 number = st.column_config.NumberColumn
 
 with metrics_tab:
-    st.markdown(
-        "All values go from **0** (worst) to **1** (best).  \n"
-        "**Precision** – when the model says *X*, how often it's right.  \n"
-        "**Recall** – of all the real *X* images, how many it found.  \n"
-        "**F1-score** – one number that balances the two."
-    )
+    st.markdown("All values go from **0** (worst) to **1** (best).")
     st.markdown("**Overall**")
+    correct = round(s["accuracy"] * 1000)
+    # Examples taken from this model's most common mistake, e.g. tomatoes predicted as avocados
+    if s["top_confusions"]:
+        top = s["top_confusions"][0]
+        # Plain names without the emoji, e.g. 'calling sadness images "neutral"'
+        real, guess = (spec.label(c).split(" ", 1)[-1].lower() for c in (top["actual"], top["predicted"]))
+        precision_example = f" - e.g. calling {real} images \"{guess}\""
+        recall_example = f" - e.g. {real} images it called something else"
+    else:
+        precision_example = recall_example = ""
     overall = pd.DataFrame([
-        ("Accuracy", s["accuracy"], "Correct answers out of all test images"),
-        ("Precision", s["macro_avg"]["precision"], "Average over the classes"),
-        ("Recall", s["macro_avg"]["recall"], "Average over the classes"),
-        ("F1-score", s["macro_avg"]["f1"], "Average over the classes"),
-    ], columns=["Metric", "Value", "Notes"])
-    st.dataframe(overall, hide_index=True, width="stretch",
-                 column_config={"Value": number("Value", format="%.3f")})
+        ("Accuracy", f"{s['accuracy']:.3f}",
+         f"Out of all the test images, the share the model classified correctly - "
+         f"{s['accuracy']:.3f} means about {correct:,} right out of every 1,000."),
+        ("Precision", f"{s['macro_avg']['precision']:.3f}",
+         "When the model names a class, how often that answer is right. "
+         f"Low precision means false alarms{precision_example}."),
+        ("Recall", f"{s['macro_avg']['recall']:.3f}",
+         "Of all the images that really belong to a class, how many the model found. "
+         f"Low recall means missed images{recall_example}."),
+        ("F1-score", f"{s['macro_avg']['f1']:.3f}",
+         "Precision and recall combined into one score (their harmonic mean). "
+         "It is only high when both are high, so it shows whether a class is handled well overall."),
+    ], columns=["Metric", "Value", "What it means"])
+    # st.table wraps long text (st.dataframe would cut the explanations off)
+    st.table(overall.set_index("Metric"))
+    st.caption("Precision, recall and F1 are first measured for each class (table below), then averaged "
+               "with every class counting equally - so a class with few test images matters as much as a big one.")
 
     st.markdown("**Per class**")
     table = pd.DataFrame(s["per_class"])[["label", "precision", "recall", "f1", "support"]]
