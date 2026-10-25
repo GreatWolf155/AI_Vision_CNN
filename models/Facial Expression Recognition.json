@@ -1,0 +1,17 @@
+{
+    "classes": [
+        "anger",
+        "contempt",
+        "disgust",
+        "fear",
+        "happiness",
+        "neutral",
+        "sadness",
+        "surprise"
+    ],
+    "image_size": [
+        48,
+        48
+    ],
+    "color_mode": "grayscale"
+}

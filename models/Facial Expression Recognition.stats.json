@@ -1,0 +1,692 @@
+{
+  "fingerprint": {
+    "sha256": "9d6012033eeff57ea98bc1a16791f66313c992b39d1ac2c38af7f87804dc29d7",
+    "version": 2
+  },
+  "model_id": "emotions",
+  "model_name": "Facial Expression Recognition",
+  "computed_at": "2026-10-25 16:17:24",
+  "evaluation_seconds": 2.6,
+  "classes": [
+    "anger",
+    "contempt",
+    "disgust",
+    "fear",
+    "happiness",
+    "neutral",
+    "sadness",
+    "surprise"
+  ],
+  "labels": [
+    "\ud83d\ude20 Anger",
+    "\ud83d\ude12 Contempt",
+    "\ud83e\udd22 Disgust",
+    "\ud83d\ude28 Fear",
+    "\ud83d\ude04 Happiness",
+    "\ud83d\ude10 Neutral",
+    "\ud83d\ude22 Sadness",
+    "\ud83d\ude32 Surprise"
+  ],
+  "test_images": 7099,
+  "accuracy": 0.8318072968023665,
+  "macro_avg": {
+    "precision": 0.8029397465878263,
+    "recall": 0.6570149346224288,
+    "f1": 0.7002228972578664
+  },
+  "weighted_avg": {
+    "precision": 0.8300757148929433,
+    "recall": 0.8318072968023665,
+    "f1": 0.828522714965608
+  },
+  "per_class": [
+    {
+      "class": "anger",
+      "label": "\ud83d\ude20 Anger",
+      "precision": 0.7915360501567398,
+      "recall": 0.7841614906832298,
+      "f1": 0.7878315132605305,
+      "support": 644
+    },
+    {
+      "class": "contempt",
+      "label": "\ud83d\ude12 Contempt",
+      "precision": 0.8666666666666667,
+      "recall": 0.2549019607843137,
+      "f1": 0.3939393939393939,
+      "support": 51
+    },
+    {
+      "class": "disgust",
+      "label": "\ud83e\udd22 Disgust",
+      "precision": 0.7741935483870968,
+      "recall": 0.42105263157894735,
+      "f1": 0.5454545454545454,
+      "support": 57
+    },
+    {
+      "class": "fear",
+      "label": "\ud83d\ude28 Fear",
+      "precision": 0.6949152542372882,
+      "recall": 0.49101796407185627,
+      "f1": 0.5754385964912281,
+      "support": 167
+    },
+    {
+      "class": "happiness",
+      "label": "\ud83d\ude04 Happiness",
+      "precision": 0.914207650273224,
+      "recall": 0.9157088122605364,
+      "f1": 0.9149576155318567,
+      "support": 1827
+    },
+    {
+      "class": "neutral",
+      "label": "\ud83d\ude10 Neutral",
+      "precision": 0.822190097578605,
+      "recall": 0.876010781671159,
+      "f1": 0.8482475764354959,
+      "support": 2597
+    },
+    {
+      "class": "sadness",
+      "label": "\ud83d\ude22 Sadness",
+      "precision": 0.6985111662531017,
+      "recall": 0.6577102803738317,
+      "f1": 0.677496991576414,
+      "support": 856
+    },
+    {
+      "class": "surprise",
+      "label": "\ud83d\ude32 Surprise",
+      "precision": 0.8612975391498882,
+      "recall": 0.8555555555555555,
+      "f1": 0.8584169453734671,
+      "support": 900
+    }
+  ],
+  "confusion_matrix": [
+    [
+      505,
+      0,
+      2,
+      4,
+      19,
+      80,
+      28,
+      6
+    ],
+    [
+      5,
+      13,
+      0,
+      1,
+      2,
+      27,
+      3,
+      0
+    ],
+    [
+      14,
+      1,
+      24,
+      2,
+      2,
+      7,
+      6,
+      1
+    ],
+    [
+      13,
+      0,
+      0,
+      82,
+      0,
+      18,
+      12,
+      42
+    ],
+    [
+      27,
+      0,
+      2,
+      1,
+      1673,
+      76,
+      18,
+      30
+    ],
+    [
+      19,
+      1,
+      1,
+      5,
+      86,
+      2275,
+      169,
+      41
+    ],
+    [
+      27,
+      0,
+      2,
+      9,
+      19,
+      232,
+      563,
+      4
+    ],
+    [
+      28,
+      0,
+      0,
+      14,
+      29,
+      52,
+      7,
+      770
+    ]
+  ],
+  "top_confusions": [
+    {
+      "actual": "sadness",
+      "predicted": "neutral",
+      "count": 232,
+      "share_of_actual": 0.27102803738317754
+    },
+    {
+      "actual": "neutral",
+      "predicted": "sadness",
+      "count": 169,
+      "share_of_actual": 0.06507508663842895
+    },
+    {
+      "actual": "neutral",
+      "predicted": "happiness",
+      "count": 86,
+      "share_of_actual": 0.03311513284559107
+    },
+    {
+      "actual": "anger",
+      "predicted": "neutral",
+      "count": 80,
+      "share_of_actual": 0.12422360248447205
+    },
+    {
+      "actual": "happiness",
+      "predicted": "neutral",
+      "count": 76,
+      "share_of_actual": 0.04159824849480022
+    },
+    {
+      "actual": "surprise",
+      "predicted": "neutral",
+      "count": 52,
+      "share_of_actual": 0.057777777777777775
+    },
+    {
+      "actual": "fear",
+      "predicted": "surprise",
+      "count": 42,
+      "share_of_actual": 0.25149700598802394
+    },
+    {
+      "actual": "neutral",
+      "predicted": "surprise",
+      "count": 41,
+      "share_of_actual": 0.015787447054293417
+    },
+    {
+      "actual": "happiness",
+      "predicted": "surprise",
+      "count": 30,
+      "share_of_actual": 0.016420361247947456
+    },
+    {
+      "actual": "surprise",
+      "predicted": "happiness",
+      "count": 29,
+      "share_of_actual": 0.03222222222222222
+    }
+  ],
+  "confidence": {
+    "mean_when_correct": 0.9421257376670837,
+    "mean_when_wrong": 0.7758680582046509,
+    "threshold": 0.6,
+    "share_unknown": 0.06902380616988309,
+    "accuracy_when_confident": 0.8591314873657134,
+    "threshold_curve": [
+      {
+        "threshold": 0.0,
+        "answered": 7099,
+        "answered_fraction": 1.0,
+        "accuracy": 0.8318072968023665
+      },
+      {
+        "threshold": 0.05,
+        "answered": 7099,
+        "answered_fraction": 1.0,
+        "accuracy": 0.8318072968023665
+      },
+      {
+        "threshold": 0.1,
+        "answered": 7099,
+        "answered_fraction": 1.0,
+        "accuracy": 0.8318072968023665
+      },
+      {
+        "threshold": 0.15,
+        "answered": 7099,
+        "answered_fraction": 1.0,
+        "accuracy": 0.8318072968023665
+      },
+      {
+        "threshold": 0.2,
+        "answered": 7099,
+        "answered_fraction": 1.0,
+        "accuracy": 0.8318072968023665
+      },
+      {
+        "threshold": 0.25,
+        "answered": 7098,
+        "answered_fraction": 0.9998591350894492,
+        "accuracy": 0.8319244857706396
+      },
+      {
+        "threshold": 0.3,
+        "answered": 7094,
+        "answered_fraction": 0.9992956754472461,
+        "accuracy": 0.8322526078376092
+      },
+      {
+        "threshold": 0.35,
+        "answered": 7084,
+        "answered_fraction": 0.9978870263417383,
+        "accuracy": 0.8330039525691699
+      },
+      {
+        "threshold": 0.4,
+        "answered": 7067,
+        "answered_fraction": 0.995492322862375,
+        "accuracy": 0.8338757605773313
+      },
+      {
+        "threshold": 0.45,
+        "answered": 7029,
+        "answered_fraction": 0.9901394562614453,
+        "accuracy": 0.8371034286527245
+      },
+      {
+        "threshold": 0.5,
+        "answered": 6952,
+        "answered_fraction": 0.9792928581490351,
+        "accuracy": 0.8414844649021864
+      },
+      {
+        "threshold": 0.55,
+        "answered": 6791,
+        "answered_fraction": 0.9566136075503592,
+        "accuracy": 0.8498012074804889
+      },
+      {
+        "threshold": 0.6,
+        "answered": 6609,
+        "answered_fraction": 0.9309761938301169,
+        "accuracy": 0.8591314873657134
+      },
+      {
+        "threshold": 0.65,
+        "answered": 6428,
+        "answered_fraction": 0.9054796450204254,
+        "accuracy": 0.8683883011823273
+      },
+      {
+        "threshold": 0.7,
+        "answered": 6268,
+        "answered_fraction": 0.8829412593323003,
+        "accuracy": 0.8765156349712827
+      },
+      {
+        "threshold": 0.75,
+        "answered": 6061,
+        "answered_fraction": 0.8537822228482885,
+        "accuracy": 0.8864873783204091
+      },
+      {
+        "threshold": 0.8,
+        "answered": 5822,
+        "answered_fraction": 0.8201155092266517,
+        "accuracy": 0.8974579182411543
+      },
+      {
+        "threshold": 0.85,
+        "answered": 5576,
+        "answered_fraction": 0.7854627412311593,
+        "accuracy": 0.9076398852223816
+      },
+      {
+        "threshold": 0.9,
+        "answered": 5241,
+        "answered_fraction": 0.7382729961966474,
+        "accuracy": 0.9211982446098073
+      },
+      {
+        "threshold": 0.95,
+        "answered": 4821,
+        "answered_fraction": 0.679109733765319,
+        "accuracy": 0.9342460070524787
+      }
+    ]
+  },
+  "dataset": {
+    "test_counts": {
+      "anger": 644,
+      "contempt": 51,
+      "disgust": 57,
+      "fear": 167,
+      "happiness": 1827,
+      "neutral": 2597,
+      "sadness": 856,
+      "surprise": 900
+    },
+    "train_counts": {
+      "anger": 2466,
+      "contempt": 165,
+      "disgust": 191,
+      "fear": 652,
+      "happiness": 7528,
+      "neutral": 10308,
+      "sadness": 3514,
+      "surprise": 3562
+    }
+  },
+  "model": {
+    "input_shape": [
+      48,
+      48,
+      1
+    ],
+    "image_size": [
+      48,
+      48
+    ],
+    "color_mode": "grayscale",
+    "total_params": 5873864,
+    "layers": [
+      {
+        "name": "conv2d",
+        "type": "Conv2D",
+        "output_shape": [
+          48,
+          48,
+          64
+        ],
+        "params": 640
+      },
+      {
+        "name": "batch_normalization",
+        "type": "BatchNormalization",
+        "output_shape": [
+          48,
+          48,
+          64
+        ],
+        "params": 256
+      },
+      {
+        "name": "conv2d_1",
+        "type": "Conv2D",
+        "output_shape": [
+          48,
+          48,
+          64
+        ],
+        "params": 36928
+      },
+      {
+        "name": "batch_normalization_1",
+        "type": "BatchNormalization",
+        "output_shape": [
+          48,
+          48,
+          64
+        ],
+        "params": 256
+      },
+      {
+        "name": "max_pooling2d",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          24,
+          24,
+          64
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout",
+        "type": "Dropout",
+        "output_shape": [
+          24,
+          24,
+          64
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_2",
+        "type": "Conv2D",
+        "output_shape": [
+          24,
+          24,
+          128
+        ],
+        "params": 73856
+      },
+      {
+        "name": "batch_normalization_2",
+        "type": "BatchNormalization",
+        "output_shape": [
+          24,
+          24,
+          128
+        ],
+        "params": 512
+      },
+      {
+        "name": "conv2d_3",
+        "type": "Conv2D",
+        "output_shape": [
+          24,
+          24,
+          128
+        ],
+        "params": 147584
+      },
+      {
+        "name": "batch_normalization_3",
+        "type": "BatchNormalization",
+        "output_shape": [
+          24,
+          24,
+          128
+        ],
+        "params": 512
+      },
+      {
+        "name": "max_pooling2d_1",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          12,
+          12,
+          128
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_1",
+        "type": "Dropout",
+        "output_shape": [
+          12,
+          12,
+          128
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_4",
+        "type": "Conv2D",
+        "output_shape": [
+          12,
+          12,
+          256
+        ],
+        "params": 295168
+      },
+      {
+        "name": "batch_normalization_4",
+        "type": "BatchNormalization",
+        "output_shape": [
+          12,
+          12,
+          256
+        ],
+        "params": 1024
+      },
+      {
+        "name": "conv2d_5",
+        "type": "Conv2D",
+        "output_shape": [
+          12,
+          12,
+          256
+        ],
+        "params": 590080
+      },
+      {
+        "name": "batch_normalization_5",
+        "type": "BatchNormalization",
+        "output_shape": [
+          12,
+          12,
+          256
+        ],
+        "params": 1024
+      },
+      {
+        "name": "max_pooling2d_2",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          6,
+          6,
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_2",
+        "type": "Dropout",
+        "output_shape": [
+          6,
+          6,
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_6",
+        "type": "Conv2D",
+        "output_shape": [
+          6,
+          6,
+          512
+        ],
+        "params": 1180160
+      },
+      {
+        "name": "batch_normalization_6",
+        "type": "BatchNormalization",
+        "output_shape": [
+          6,
+          6,
+          512
+        ],
+        "params": 2048
+      },
+      {
+        "name": "conv2d_7",
+        "type": "Conv2D",
+        "output_shape": [
+          6,
+          6,
+          512
+        ],
+        "params": 2359808
+      },
+      {
+        "name": "batch_normalization_7",
+        "type": "BatchNormalization",
+        "output_shape": [
+          6,
+          6,
+          512
+        ],
+        "params": 2048
+      },
+      {
+        "name": "max_pooling2d_3",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          3,
+          3,
+          512
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_3",
+        "type": "Dropout",
+        "output_shape": [
+          3,
+          3,
+          512
+        ],
+        "params": 0
+      },
+      {
+        "name": "flatten",
+        "type": "Flatten",
+        "output_shape": [
+          4608
+        ],
+        "params": 0
+      },
+      {
+        "name": "dense",
+        "type": "Dense",
+        "output_shape": [
+          256
+        ],
+        "params": 1179904
+      },
+      {
+        "name": "dropout_4",
+        "type": "Dropout",
+        "output_shape": [
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "dense_1",
+        "type": "Dense",
+        "output_shape": [
+          8
+        ],
+        "params": 2056
+      }
+    ],
+    "file_size_mb": 67.3,
+    "saved_at": "2026-10-25 16:06"
+  }
+}
