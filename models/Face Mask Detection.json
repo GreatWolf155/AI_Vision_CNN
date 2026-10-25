@@ -1,0 +1,11 @@
+{
+    "classes": [
+        "with_mask",
+        "without_mask"
+    ],
+    "image_size": [
+        64,
+        64
+    ],
+    "color_mode": "rgb"
+}

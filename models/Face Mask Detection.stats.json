@@ -1,0 +1,500 @@
+{
+  "fingerprint": {
+    "sha256": "125564a9b6a7a110763e288bef352a8c527a6826cdd36941cd80fb42c93d2f46",
+    "version": 2
+  },
+  "model_id": "face-mask",
+  "model_name": "Face Mask Detection",
+  "computed_at": "2026-10-25 16:17:21",
+  "evaluation_seconds": 0.8,
+  "classes": [
+    "with_mask",
+    "without_mask"
+  ],
+  "labels": [
+    "\ud83d\ude37 With mask",
+    "\ud83d\ude42 Without mask"
+  ],
+  "test_images": 1907,
+  "accuracy": 0.9459884635553225,
+  "macro_avg": {
+    "precision": 0.9469801721457352,
+    "recall": 0.9458808414967079,
+    "f1": 0.9459482738456415
+  },
+  "weighted_avg": {
+    "precision": 0.9468862208055908,
+    "recall": 0.9459884635553225,
+    "f1": 0.9459552297569325
+  },
+  "per_class": [
+    {
+      "class": "with_mask",
+      "label": "\ud83d\ude37 With mask",
+      "precision": 0.9270729270729271,
+      "recall": 0.9686847599164927,
+      "f1": 0.9474221541602859,
+      "support": 958
+    },
+    {
+      "class": "without_mask",
+      "label": "\ud83d\ude42 Without mask",
+      "precision": 0.9668874172185431,
+      "recall": 0.9230769230769231,
+      "f1": 0.9444743935309973,
+      "support": 949
+    }
+  ],
+  "confusion_matrix": [
+    [
+      928,
+      30
+    ],
+    [
+      73,
+      876
+    ]
+  ],
+  "top_confusions": [
+    {
+      "actual": "without_mask",
+      "predicted": "with_mask",
+      "count": 73,
+      "share_of_actual": 0.07692307692307693
+    },
+    {
+      "actual": "with_mask",
+      "predicted": "without_mask",
+      "count": 30,
+      "share_of_actual": 0.031315240083507306
+    }
+  ],
+  "confidence": {
+    "mean_when_correct": 0.9313270449638367,
+    "mean_when_wrong": 0.6965035796165466,
+    "threshold": 0.6,
+    "share_unknown": 0.04876769795490299,
+    "accuracy_when_confident": 0.9586549062844543,
+    "threshold_curve": [
+      {
+        "threshold": 0.0,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.05,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.1,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.15,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.2,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.25,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.3,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.35,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.4,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.45,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.5,
+        "answered": 1907,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9459884635553225
+      },
+      {
+        "threshold": 0.55,
+        "answered": 1864,
+        "answered_fraction": 0.9774514944939696,
+        "accuracy": 0.9517167381974249
+      },
+      {
+        "threshold": 0.6,
+        "answered": 1814,
+        "answered_fraction": 0.951232302045097,
+        "accuracy": 0.9586549062844543
+      },
+      {
+        "threshold": 0.65,
+        "answered": 1770,
+        "answered_fraction": 0.9281594126900892,
+        "accuracy": 0.9655367231638418
+      },
+      {
+        "threshold": 0.7,
+        "answered": 1718,
+        "answered_fraction": 0.9008914525432616,
+        "accuracy": 0.9708963911525029
+      },
+      {
+        "threshold": 0.75,
+        "answered": 1650,
+        "answered_fraction": 0.865233350812795,
+        "accuracy": 0.9787878787878788
+      },
+      {
+        "threshold": 0.8,
+        "answered": 1579,
+        "answered_fraction": 0.8280020975353959,
+        "accuracy": 0.9854338188727042
+      },
+      {
+        "threshold": 0.85,
+        "answered": 1491,
+        "answered_fraction": 0.7818563188253802,
+        "accuracy": 0.98859825620389
+      },
+      {
+        "threshold": 0.9,
+        "answered": 1392,
+        "answered_fraction": 0.7299423177766124,
+        "accuracy": 0.9978448275862069
+      },
+      {
+        "threshold": 0.95,
+        "answered": 1254,
+        "answered_fraction": 0.6575773466177242,
+        "accuracy": 0.9984051036682615
+      }
+    ]
+  },
+  "dataset": {
+    "test_counts": {
+      "with_mask": 958,
+      "without_mask": 949
+    },
+    "train_counts": {
+      "with_mask": 3831,
+      "without_mask": 3798
+    }
+  },
+  "model": {
+    "input_shape": [
+      64,
+      64,
+      3
+    ],
+    "image_size": [
+      64,
+      64
+    ],
+    "color_mode": "rgb",
+    "total_params": 6790978,
+    "layers": [
+      {
+        "name": "conv2d",
+        "type": "Conv2D",
+        "output_shape": [
+          64,
+          64,
+          64
+        ],
+        "params": 1792
+      },
+      {
+        "name": "batch_normalization",
+        "type": "BatchNormalization",
+        "output_shape": [
+          64,
+          64,
+          64
+        ],
+        "params": 256
+      },
+      {
+        "name": "conv2d_1",
+        "type": "Conv2D",
+        "output_shape": [
+          64,
+          64,
+          64
+        ],
+        "params": 36928
+      },
+      {
+        "name": "batch_normalization_1",
+        "type": "BatchNormalization",
+        "output_shape": [
+          64,
+          64,
+          64
+        ],
+        "params": 256
+      },
+      {
+        "name": "max_pooling2d",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          32,
+          32,
+          64
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout",
+        "type": "Dropout",
+        "output_shape": [
+          32,
+          32,
+          64
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_2",
+        "type": "Conv2D",
+        "output_shape": [
+          32,
+          32,
+          128
+        ],
+        "params": 73856
+      },
+      {
+        "name": "batch_normalization_2",
+        "type": "BatchNormalization",
+        "output_shape": [
+          32,
+          32,
+          128
+        ],
+        "params": 512
+      },
+      {
+        "name": "conv2d_3",
+        "type": "Conv2D",
+        "output_shape": [
+          32,
+          32,
+          128
+        ],
+        "params": 147584
+      },
+      {
+        "name": "batch_normalization_3",
+        "type": "BatchNormalization",
+        "output_shape": [
+          32,
+          32,
+          128
+        ],
+        "params": 512
+      },
+      {
+        "name": "max_pooling2d_1",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          16,
+          16,
+          128
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_1",
+        "type": "Dropout",
+        "output_shape": [
+          16,
+          16,
+          128
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_4",
+        "type": "Conv2D",
+        "output_shape": [
+          16,
+          16,
+          256
+        ],
+        "params": 295168
+      },
+      {
+        "name": "batch_normalization_4",
+        "type": "BatchNormalization",
+        "output_shape": [
+          16,
+          16,
+          256
+        ],
+        "params": 1024
+      },
+      {
+        "name": "conv2d_5",
+        "type": "Conv2D",
+        "output_shape": [
+          16,
+          16,
+          256
+        ],
+        "params": 590080
+      },
+      {
+        "name": "batch_normalization_5",
+        "type": "BatchNormalization",
+        "output_shape": [
+          16,
+          16,
+          256
+        ],
+        "params": 1024
+      },
+      {
+        "name": "max_pooling2d_2",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          8,
+          8,
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_2",
+        "type": "Dropout",
+        "output_shape": [
+          8,
+          8,
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_6",
+        "type": "Conv2D",
+        "output_shape": [
+          8,
+          8,
+          512
+        ],
+        "params": 1180160
+      },
+      {
+        "name": "batch_normalization_6",
+        "type": "BatchNormalization",
+        "output_shape": [
+          8,
+          8,
+          512
+        ],
+        "params": 2048
+      },
+      {
+        "name": "conv2d_7",
+        "type": "Conv2D",
+        "output_shape": [
+          8,
+          8,
+          512
+        ],
+        "params": 2359808
+      },
+      {
+        "name": "batch_normalization_7",
+        "type": "BatchNormalization",
+        "output_shape": [
+          8,
+          8,
+          512
+        ],
+        "params": 2048
+      },
+      {
+        "name": "max_pooling2d_3",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          4,
+          4,
+          512
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_3",
+        "type": "Dropout",
+        "output_shape": [
+          4,
+          4,
+          512
+        ],
+        "params": 0
+      },
+      {
+        "name": "flatten",
+        "type": "Flatten",
+        "output_shape": [
+          8192
+        ],
+        "params": 0
+      },
+      {
+        "name": "dense",
+        "type": "Dense",
+        "output_shape": [
+          256
+        ],
+        "params": 2097408
+      },
+      {
+        "name": "dropout_4",
+        "type": "Dropout",
+        "output_shape": [
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "dense_1",
+        "type": "Dense",
+        "output_shape": [
+          2
+        ],
+        "params": 514
+      }
+    ],
+    "file_size_mb": 77.8,
+    "saved_at": "2026-10-25 12:46"
+  }
+}
