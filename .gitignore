@@ -1,0 +1,13 @@
+# Python environments and caches
+.venv/
+.venv-*/
+__pycache__/
+
+# Datasets (downloaded from Kaggle by the notebook) - the samples/ folder has a few test images instead
+data/
+
+# Local files
+logs/
+*.partial
+.vscode/
+project03_cnn.pdf
