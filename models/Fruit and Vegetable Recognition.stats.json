@@ -1,0 +1,587 @@
+{
+  "fingerprint": {
+    "sha256": "d7768f59f95dcb62a002447e222f06f2c7d132d0a6ae071248e4999ef758efa8",
+    "version": 2
+  },
+  "model_id": "fruits",
+  "model_name": "Fruit and Vegetable Recognition",
+  "computed_at": "2026-10-25 16:17:20",
+  "evaluation_seconds": 5.3,
+  "classes": [
+    "Apple",
+    "Avocado",
+    "Banana",
+    "Eggplant",
+    "Tomato"
+  ],
+  "labels": [
+    "\ud83c\udf4e Apple",
+    "\ud83e\udd51 Avocado",
+    "\ud83c\udf4c Banana",
+    "\ud83c\udf46 Eggplant",
+    "\ud83c\udf45 Tomato"
+  ],
+  "test_images": 10661,
+  "accuracy": 0.9708282525091455,
+  "macro_avg": {
+    "precision": 0.95600555311307,
+    "recall": 0.9218386694896623,
+    "f1": 0.9314138547666623
+  },
+  "weighted_avg": {
+    "precision": 0.9747697896373638,
+    "recall": 0.9708282525091455,
+    "f1": 0.970964298104159
+  },
+  "per_class": [
+    {
+      "class": "Apple",
+      "label": "\ud83c\udf4e Apple",
+      "precision": 0.9881547288543402,
+      "recall": 0.9979439252336448,
+      "f1": 0.9930252022691342,
+      "support": 5350
+    },
+    {
+      "class": "Avocado",
+      "label": "\ud83e\udd51 Avocado",
+      "precision": 0.8136,
+      "recall": 1.0,
+      "f1": 0.8972209969122188,
+      "support": 1017
+    },
+    {
+      "class": "Banana",
+      "label": "\ud83c\udf4c Banana",
+      "precision": 1.0,
+      "recall": 0.993798449612403,
+      "f1": 0.9968895800933126,
+      "support": 645
+    },
+    {
+      "class": "Eggplant",
+      "label": "\ud83c\udf46 Eggplant",
+      "precision": 0.9817073170731707,
+      "recall": 0.6822033898305084,
+      "f1": 0.805,
+      "support": 236
+    },
+    {
+      "class": "Tomato",
+      "label": "\ud83c\udf45 Tomato",
+      "precision": 0.9965657196378396,
+      "recall": 0.935247582771755,
+      "f1": 0.9649334945586457,
+      "support": 3413
+    }
+  ],
+  "confusion_matrix": [
+    [
+      5339,
+      0,
+      0,
+      0,
+      11
+    ],
+    [
+      0,
+      1017,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      641,
+      3,
+      0
+    ],
+    [
+      0,
+      75,
+      0,
+      161,
+      0
+    ],
+    [
+      63,
+      158,
+      0,
+      0,
+      3192
+    ]
+  ],
+  "top_confusions": [
+    {
+      "actual": "Tomato",
+      "predicted": "Avocado",
+      "count": 158,
+      "share_of_actual": 0.04629358335774978
+    },
+    {
+      "actual": "Eggplant",
+      "predicted": "Avocado",
+      "count": 75,
+      "share_of_actual": 0.3177966101694915
+    },
+    {
+      "actual": "Tomato",
+      "predicted": "Apple",
+      "count": 63,
+      "share_of_actual": 0.018458833870495166
+    },
+    {
+      "actual": "Apple",
+      "predicted": "Tomato",
+      "count": 11,
+      "share_of_actual": 0.00205607476635514
+    },
+    {
+      "actual": "Banana",
+      "predicted": "Eggplant",
+      "count": 3,
+      "share_of_actual": 0.004651162790697674
+    },
+    {
+      "actual": "Banana",
+      "predicted": "Apple",
+      "count": 1,
+      "share_of_actual": 0.0015503875968992248
+    }
+  ],
+  "confidence": {
+    "mean_when_correct": 0.9923522472381592,
+    "mean_when_wrong": 0.9103407263755798,
+    "threshold": 0.6,
+    "share_unknown": 0.004033392739893068,
+    "accuracy_when_confident": 0.9730646072706725,
+    "threshold_curve": [
+      {
+        "threshold": 0.0,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.05,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.1,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.15,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.2,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.25,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.3,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.35,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.4,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.45,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.5,
+        "answered": 10661,
+        "answered_fraction": 1.0,
+        "accuracy": 0.9708282525091455
+      },
+      {
+        "threshold": 0.55,
+        "answered": 10642,
+        "answered_fraction": 0.9982178032079543,
+        "accuracy": 0.9717158428866755
+      },
+      {
+        "threshold": 0.6,
+        "answered": 10618,
+        "answered_fraction": 0.9959666072601069,
+        "accuracy": 0.9730646072706725
+      },
+      {
+        "threshold": 0.65,
+        "answered": 10595,
+        "answered_fraction": 0.9938092111434199,
+        "accuracy": 0.9741387446908919
+      },
+      {
+        "threshold": 0.7,
+        "answered": 10571,
+        "answered_fraction": 0.9915580151955726,
+        "accuracy": 0.9749314161384921
+      },
+      {
+        "threshold": 0.75,
+        "answered": 10542,
+        "answered_fraction": 0.9888378200919238,
+        "accuracy": 0.9757161828874976
+      },
+      {
+        "threshold": 0.8,
+        "answered": 10490,
+        "answered_fraction": 0.9839602288715881,
+        "accuracy": 0.976835081029552
+      },
+      {
+        "threshold": 0.85,
+        "answered": 10421,
+        "answered_fraction": 0.977488040521527,
+        "accuracy": 0.9772574608962672
+      },
+      {
+        "threshold": 0.9,
+        "answered": 10334,
+        "answered_fraction": 0.9693274552105806,
+        "accuracy": 0.9781304431972131
+      },
+      {
+        "threshold": 0.95,
+        "answered": 10166,
+        "answered_fraction": 0.9535690835756495,
+        "accuracy": 0.9788510722014558
+      }
+    ]
+  },
+  "dataset": {
+    "test_counts": {
+      "Apple": 5350,
+      "Avocado": 1017,
+      "Banana": 645,
+      "Eggplant": 236,
+      "Tomato": 3413
+    },
+    "train_counts": {
+      "Apple": 16101,
+      "Avocado": 3060,
+      "Banana": 1917,
+      "Eggplant": 708,
+      "Tomato": 10259
+    }
+  },
+  "model": {
+    "input_shape": [
+      64,
+      64,
+      3
+    ],
+    "image_size": [
+      64,
+      64
+    ],
+    "color_mode": "rgb",
+    "total_params": 6791749,
+    "layers": [
+      {
+        "name": "conv2d",
+        "type": "Conv2D",
+        "output_shape": [
+          64,
+          64,
+          64
+        ],
+        "params": 1792
+      },
+      {
+        "name": "batch_normalization",
+        "type": "BatchNormalization",
+        "output_shape": [
+          64,
+          64,
+          64
+        ],
+        "params": 256
+      },
+      {
+        "name": "conv2d_1",
+        "type": "Conv2D",
+        "output_shape": [
+          64,
+          64,
+          64
+        ],
+        "params": 36928
+      },
+      {
+        "name": "batch_normalization_1",
+        "type": "BatchNormalization",
+        "output_shape": [
+          64,
+          64,
+          64
+        ],
+        "params": 256
+      },
+      {
+        "name": "max_pooling2d",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          32,
+          32,
+          64
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout",
+        "type": "Dropout",
+        "output_shape": [
+          32,
+          32,
+          64
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_2",
+        "type": "Conv2D",
+        "output_shape": [
+          32,
+          32,
+          128
+        ],
+        "params": 73856
+      },
+      {
+        "name": "batch_normalization_2",
+        "type": "BatchNormalization",
+        "output_shape": [
+          32,
+          32,
+          128
+        ],
+        "params": 512
+      },
+      {
+        "name": "conv2d_3",
+        "type": "Conv2D",
+        "output_shape": [
+          32,
+          32,
+          128
+        ],
+        "params": 147584
+      },
+      {
+        "name": "batch_normalization_3",
+        "type": "BatchNormalization",
+        "output_shape": [
+          32,
+          32,
+          128
+        ],
+        "params": 512
+      },
+      {
+        "name": "max_pooling2d_1",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          16,
+          16,
+          128
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_1",
+        "type": "Dropout",
+        "output_shape": [
+          16,
+          16,
+          128
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_4",
+        "type": "Conv2D",
+        "output_shape": [
+          16,
+          16,
+          256
+        ],
+        "params": 295168
+      },
+      {
+        "name": "batch_normalization_4",
+        "type": "BatchNormalization",
+        "output_shape": [
+          16,
+          16,
+          256
+        ],
+        "params": 1024
+      },
+      {
+        "name": "conv2d_5",
+        "type": "Conv2D",
+        "output_shape": [
+          16,
+          16,
+          256
+        ],
+        "params": 590080
+      },
+      {
+        "name": "batch_normalization_5",
+        "type": "BatchNormalization",
+        "output_shape": [
+          16,
+          16,
+          256
+        ],
+        "params": 1024
+      },
+      {
+        "name": "max_pooling2d_2",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          8,
+          8,
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_2",
+        "type": "Dropout",
+        "output_shape": [
+          8,
+          8,
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "conv2d_6",
+        "type": "Conv2D",
+        "output_shape": [
+          8,
+          8,
+          512
+        ],
+        "params": 1180160
+      },
+      {
+        "name": "batch_normalization_6",
+        "type": "BatchNormalization",
+        "output_shape": [
+          8,
+          8,
+          512
+        ],
+        "params": 2048
+      },
+      {
+        "name": "conv2d_7",
+        "type": "Conv2D",
+        "output_shape": [
+          8,
+          8,
+          512
+        ],
+        "params": 2359808
+      },
+      {
+        "name": "batch_normalization_7",
+        "type": "BatchNormalization",
+        "output_shape": [
+          8,
+          8,
+          512
+        ],
+        "params": 2048
+      },
+      {
+        "name": "max_pooling2d_3",
+        "type": "MaxPooling2D",
+        "output_shape": [
+          4,
+          4,
+          512
+        ],
+        "params": 0
+      },
+      {
+        "name": "dropout_3",
+        "type": "Dropout",
+        "output_shape": [
+          4,
+          4,
+          512
+        ],
+        "params": 0
+      },
+      {
+        "name": "flatten",
+        "type": "Flatten",
+        "output_shape": [
+          8192
+        ],
+        "params": 0
+      },
+      {
+        "name": "dense",
+        "type": "Dense",
+        "output_shape": [
+          256
+        ],
+        "params": 2097408
+      },
+      {
+        "name": "dropout_4",
+        "type": "Dropout",
+        "output_shape": [
+          256
+        ],
+        "params": 0
+      },
+      {
+        "name": "dense_1",
+        "type": "Dense",
+        "output_shape": [
+          5
+        ],
+        "params": 1285
+      }
+    ],
+    "file_size_mb": 77.8,
+    "saved_at": "2026-10-25 14:21"
+  }
+}

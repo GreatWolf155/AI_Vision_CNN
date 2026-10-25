@@ -1,0 +1,14 @@
+{
+    "classes": [
+        "Apple",
+        "Avocado",
+        "Banana",
+        "Eggplant",
+        "Tomato"
+    ],
+    "image_size": [
+        64,
+        64
+    ],
+    "color_mode": "rgb"
+}
