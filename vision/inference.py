@@ -59,12 +59,28 @@ class Prediction:
         }
 
 
+class _PredictionOnlyUnpickler(pickle.Unpickler):
+    # A pickled Keras model is a call to Model._unpickle_model(<the model as a .keras file>), which also
+    # rebuilds the optimizer. The notebook's optimizer is PyTorch's own Adam, which other backends can't load,
+    # so load the model without it (prediction doesn't need it). Same file, same weights.
+    def find_class(self, module, name):
+        if (module, name) == ("builtins", "getattr"):
+            return lambda obj, attr: _load_keras_file if attr == "_unpickle_model" else getattr(obj, attr)
+        return super().find_class(module, name)
+
+
+def _load_keras_file(fileobj):
+    from keras.src.saving import saving_lib
+
+    return saving_lib._load_model_from_fileobj(fileobj, custom_objects=None, compile=False, safe_mode=False)
+
+
 def load_model(spec):
     # The notebook saved the whole Keras model with pickle, and the image settings in a .json next to it
     import keras  # noqa: F401  (imported here so the backend is set up before unpickling)
 
     with open(spec.model_path, "rb") as f:
-        model = pickle.load(f)
+        model = _PredictionOnlyUnpickler(f).load()
     with open(spec.info_path) as f:
         info = json.load(f)
     return LoadedModel(

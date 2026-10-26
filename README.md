@@ -1,7 +1,11 @@
 # 🔮 CNN Vision
 
 Image classification with convolutional neural networks. Three models are trained in
-`reference work.ipynb` and served by a Streamlit site and a FastAPI REST API, online through ngrok.
+`reference work.ipynb` and served by a Streamlit site and a FastAPI REST API, online on Google Cloud Run
+(and through ngrok when it runs on a computer).
+
+**Online:** https://cnn-vision-134174130288.europe-west1.run.app (REST API docs at `/api/docs`).
+After a quiet period the first visit takes up to a minute while the server starts.
 
 | Model | Classes | Test accuracy |
 |---|---|---|
@@ -23,6 +27,21 @@ The terminal then shows the public address and a QR code for opening the site on
 - `python main.py --no-ngrok`: run only on this computer (http://localhost:8765)
 - `python main.py --reset-token`: enter a different ngrok authtoken
 
+## In the cloud (Google Cloud Run)
+
+The `Dockerfile` runs the site and the API in one container. In the cloud Keras runs on JAX instead of PyTorch:
+it needs far less memory, and the saved models give the same predictions with it (checked on 990 test images).
+To deploy a new version (with the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install), logged in):
+
+```bash
+gcloud run deploy cnn-vision --source . --region europe-west1 --memory 2Gi --cpu 1 --cpu-boost \
+  --min-instances 0 --max-instances 1 --session-affinity --timeout 3600 --allow-unauthenticated
+```
+
+It stays inside Cloud Run's free tier (50 hours a month with 1 CPU and 2 GB):
+`deploy/free_tier_guard.py` checks the usage every 15 minutes, and at 80% it closes the site to the public
+for the rest of the month. A Cloud Scheduler job (`cnn-vision-reopen`) opens it again on the 1st.
+
 ## What's inside
 
 | File | What it does |
@@ -33,6 +52,7 @@ The terminal then shows the public address and a QR code for opening the site on
 | `api.py` | FastAPI REST API under `/api` (docs at `/api/docs`); passes every other path on to the site |
 | `vision/` | Shared code: loading the models, preparing images like in training, statistics, charts |
 | `models/` | The trained models (`.pkl`), their class names and image settings (`.json`) and cached statistics |
+| `Dockerfile`, `deploy/` | The cloud version: container, its requirements (JAX instead of PyTorch) and the free tier guard |
 
 ## The site
 

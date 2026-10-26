@@ -45,6 +45,8 @@ def parse_args():
     parser.add_argument("--no-ngrok", action="store_true", help="don't open an ngrok tunnel")
     parser.add_argument("--reset-token", action="store_true", help="ask for the ngrok authtoken again")
     parser.add_argument("--domain", help="your static ngrok domain (optional)")
+    parser.add_argument("--site-url", default=os.environ.get("VISION_SITE_URL"),
+                        help="the site's address when it runs on a cloud server (shown on the API page)")
     parser.add_argument("--no-browser", action="store_true", help="don't open the site in the browser")
     parser.add_argument("--no-update", action="store_true", help="don't pull new versions from GitHub")
     parser.add_argument("--update-every", type=float, default=5, metavar="MINUTES",
@@ -332,13 +334,14 @@ def supervise(args):
 def serve(args):
     args.port = free_port(args.port)
     args.streamlit_port = free_port(args.streamlit_port if args.streamlit_port != args.port else args.port + 1)
-    local_url = f"http://localhost:{args.port}"
+    local_url = args.site_url or f"http://localhost:{args.port}"
     streamlit_url = f"http://127.0.0.1:{args.streamlit_port}"
 
     public_url = None if args.no_ngrok else start_ngrok(args.port, args.domain, args.reset_token)
 
-    env = dict(os.environ, KERAS_BACKEND="torch", VISION_STREAMLIT_URL=streamlit_url, VISION_LOCAL_URL=local_url,
-               VISION_PUBLIC_URL=public_url or "", PYTHONIOENCODING="utf-8")
+    # Keras runs on PyTorch unless KERAS_BACKEND says otherwise (the cloud server uses jax)
+    env = dict(os.environ, KERAS_BACKEND=os.environ.get("KERAS_BACKEND", "torch"), VISION_STREAMLIT_URL=streamlit_url,
+               VISION_LOCAL_URL=local_url, VISION_PUBLIC_URL=public_url or "", PYTHONIOENCODING="utf-8")
     os.environ.update(env)  # the API (started below in this process) reads the same settings
 
     print("Starting the Streamlit site...")
@@ -362,6 +365,10 @@ def serve(args):
     if args.update_every:
         print(f"[update] checking GitHub for a new version every {args.update_every:g} minutes")
         threading.Thread(target=watch_github, args=(server, args.update_every), daemon=True).start()
+    if os.environ.get("K_SERVICE"):  # running on Google Cloud Run
+        from deploy import free_tier_guard
+
+        threading.Thread(target=free_tier_guard.watch, args=(server,), daemon=True).start()
     try:
         server.run()
     except KeyboardInterrupt:
