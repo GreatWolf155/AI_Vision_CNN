@@ -150,7 +150,7 @@ header = (
     f'<div class="api-head"><span class="api-title">{html.escape(info["title"])}</span>'
     f'<span class="pill pill-version">{html.escape(info["version"])}</span>'
     f'<span class="pill pill-oas">OAS {oas}</span></div>'
-    f'<a class="api-spec" href="/api/openapi.json" target="_blank">/api/openapi.json</a>'
+    f'<a class="api-spec" href="{html.escape(base)}/api/openapi.json" target="_blank">/api/openapi.json</a>'
     f'<div class="api-base">Base address: <code>{html.escape(base)}</code>'
     + (" &nbsp;·&nbsp; from code, add the header <code>ngrok-skip-browser-warning: 1</code>" if common.PUBLIC_URL else "")
     + "</div>"

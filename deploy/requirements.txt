@@ -1,0 +1,21 @@
+# Streamlit Community Cloud installs this (not ../requirements.txt) for deploy/streamlit_app.py:
+# only what the site needs, with the CPU build of PyTorch (the cloud server has no GPU)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.11.0+cpu
+keras==3.15.1
+matplotlib==3.11.2
+numpy==2.5.2
+pillow==12.3.0
+scikit-learn==1.9.1
+
+fastapi==0.162.0
+httpx==0.28.1
+opencv-python-headless==4.14.0.94
+pandas==3.1.0
+plotly==7.1.0
+pyngrok==9.0.3
+python-multipart==0.0.32
+segno==1.6.6
+streamlit==1.66.1
+uvicorn[standard]==0.54.0
+websockets==17.3
