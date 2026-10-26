@@ -4,7 +4,7 @@ Image classification with convolutional neural networks. Three models are traine
 `reference work.ipynb` and served by a Streamlit site and a FastAPI REST API, online on Google Cloud Run
 (and through ngrok when it runs on a computer).
 
-**Online:** https://cnn-vision-134174130288.europe-west1.run.app (REST API docs at `/api/docs`).
+**Online:** https://cnn-vision-134174130288.us-central1.run.app (REST API docs at `/api/docs`).
 After a quiet period the first visit takes up to a minute while the server starts.
 
 | Model | Classes | Test accuracy |
@@ -31,16 +31,27 @@ The terminal then shows the public address and a QR code for opening the site on
 
 The `Dockerfile` runs the site and the API in one container. In the cloud Keras runs on JAX instead of PyTorch:
 it needs far less memory, and the saved models give the same predictions with it (checked on 990 test images).
-To deploy a new version (with the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install), logged in):
+
+Every push to GitHub builds the image (`.github/workflows/cloud-image.yml`) and stores it, public and free,
+at `ghcr.io/greatwolf155/cnn-vision`. To put a new version online, deploy the build of the latest commit
+(with the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install), logged in):
 
 ```bash
-gcloud run deploy cnn-vision --source . --region europe-west1 --memory 2Gi --cpu 1 --cpu-boost \
-  --min-instances 0 --max-instances 1 --session-affinity --timeout 3600 --allow-unauthenticated
+gcloud run deploy cnn-vision --image ghcr.io/greatwolf155/cnn-vision:<commit sha> --region us-central1 \
+  --memory 2Gi --cpu 1 --no-cpu-boost --min-instances 0 --max-instances 1 --session-affinity --timeout 3600 \
+  --service-account cnn-vision-runner@cnn-vision-512817.iam.gserviceaccount.com --allow-unauthenticated
 ```
 
-It stays inside Cloud Run's free tier (50 hours a month with 1 CPU and 2 GB):
-`deploy/free_tier_guard.py` checks the usage every 15 minutes, and at 80% it closes the site to the public
-for the rest of the month. A Cloud Scheduler job (`cnn-vision-reopen`) opens it again on the 1st.
+**Staying free.** Everything is kept inside Google Cloud's free tier, so nothing is charged:
+
+- `deploy/free_tier_guard.py` checks the usage every 15 minutes. At 80% of the free running time
+  (50 hours a month with 1 CPU and 2 GB) or of the free outgoing traffic (1 GB a month from a US region)
+  it closes the site to the public. The Cloud Scheduler job `cnn-vision-reopen` opens it again on the 1st.
+- `deploy/charge_cutoff/` is a Cloud Function on the project's budget: as soon as the month's cost after
+  credits is above 0, it closes the site and pauses the reopen job, so it stays closed.
+- `deploy/restart.py` (the "Restart CNN Vision" desktop shortcut) opens it again, after checking the usage.
+- `deploy/monthly_check.gs` runs on Google Apps Script: on the 1st of every month it emails a reminder
+  to restart the site if it is still offline.
 
 ## What's inside
 
@@ -52,7 +63,7 @@ for the rest of the month. A Cloud Scheduler job (`cnn-vision-reopen`) opens it 
 | `api.py` | FastAPI REST API under `/api` (docs at `/api/docs`); passes every other path on to the site |
 | `vision/` | Shared code: loading the models, preparing images like in training, statistics, charts |
 | `models/` | The trained models (`.pkl`), their class names and image settings (`.json`) and cached statistics |
-| `Dockerfile`, `deploy/` | The cloud version: container, its requirements (JAX instead of PyTorch) and the free tier guard |
+| `Dockerfile`, `deploy/` | The cloud version: container, its requirements (JAX instead of PyTorch) and what keeps it free |
 
 ## The site
 
