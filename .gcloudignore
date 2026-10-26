@@ -1,6 +1,0 @@
-# Files not uploaded to Google Cloud when deploying (on top of everything in .gitignore)
-#!include:.gitignore
-.git/
-.gcloudignore
-reference work.ipynb
-project03_cnn.pdf
