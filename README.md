@@ -77,6 +77,7 @@ shaped as a batch of one). The result shows the predicted class and the probabil
 **Bonuses**
 - If the model is less than 60% sure, the answer is **Unknown** (the threshold can be changed in the settings).
 - Online with **ngrok**, with a layout made for phones (picked automatically, or switch it in the settings).
+- Online in a **public cloud** (Google Cloud Run), site and REST API, kept inside the free tier.
 - A **REST API** with model statistics and graphs.
 - For facial expressions, the face is found and cropped first, so normal photos look like the training close-ups.
 
@@ -85,7 +86,7 @@ shaped as a batch of one). The result shows the predicted class and the probabil
 | Method | Path | |
 |---|---|---|
 | GET | `/api/models` | The models, their classes and input size |
-| POST | `/api/models/{model_id}/predict` | Classify an image (`file` form field; optional `threshold`, `face_crop`) |
+| POST | `/api/models/{model_id}/predict` | Classify an image (`file` form field; optional query parameters `threshold`, `face_crop`) |
 | GET | `/api/stats` | Accuracy summary of all models |
 | GET | `/api/models/{model_id}/stats` | Accuracy, precision / recall / F1 per class, confusion matrix, confidence, dataset, architecture |
 | GET | `/api/models/{model_id}/stats/graphs/{graph}.png` | `per_class_metrics`, `confusion_matrix`, `class_distribution` |
@@ -94,7 +95,8 @@ shaped as a batch of one). The result shows the predicted class and the probabil
 `model_id` is one of `fruits`, `face-mask` or `emotions`.
 
 ```bash
-curl -F "file=@banana.jpg" http://localhost:8765/api/models/fruits/predict
+curl -F "file=@banana.jpg" https://cnn-vision-134174130288.us-central1.run.app/api/models/fruits/predict
+curl -F "file=@banana.jpg" "http://localhost:8765/api/models/fruits/predict?threshold=0.8"
 ```
 
 Through a free ngrok address, add the header `ngrok-skip-browser-warning: 1` when calling the API from code.
