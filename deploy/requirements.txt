@@ -1,6 +1,6 @@
 # Only what the site and REST API need on a cloud server. Keras runs on JAX there (KERAS_BACKEND=jax):
 # much lighter than PyTorch, and the saved models give the same predictions with it.
-# Used by deploy/setup_server.sh (Oracle Cloud) and deploy/streamlit_app.py (Streamlit Community Cloud).
+# Used by the Dockerfile (Google Cloud Run).
 jax[cpu]==0.12.0.1
 keras==3.15.1
 matplotlib==3.11.2
